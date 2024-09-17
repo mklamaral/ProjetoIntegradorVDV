@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+.newsreader-fontePadrao {
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.newsreader-fonteTitulo {
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.reduzir-espacamento {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.box-usuario-vadevan-menu, #box-usuario-vadevan, .box-editar-info {
+    display: none;
+    width: 235px;
+    position: absolute;
+    right: 10px;
+    top: 110px;
+}
+.link-usuario-vadevan, .editar-info {
+    cursor: pointer;
+}
+.hoverlinks :hover {
+    fill: #ffc107;
+}
+.row-PorqueNos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5%;
+}
+
+.btn-Cadastro {
+    width: 250px;
+}
+
+.btn-PorqueNos {
+    width: 100px;
+}
+
+.btn-quer-ser-um-motorista {
+    width: 275px;
+    height: 43px;
+}
+
+.btn-cadastro-motorista {
+    width: 275px;
+    height: 43px;
+}
+
+.pagdown {
+    z-index: 10;
+}
+
+.start-50 {
+    left: 50% !important;
+}
+
+.top-45 {
+    top: 45% !important;
+}
+
+.bg-grey {
+    --bs-bg-opacity: 1;
+    background-color: #e0e0e0 !important;
+}
+
+.container-duvidas {
+    min-height: 450px;
+}
+
+.altura-input {
+    height: 100%;
+}
+
+.align-top {
+    display: flex;
+    align-items: flex-start;
+}
+
+.btn-botao {
+    color: #000;
+    background-color: #fff6c3;
+    border-color: #fff6c3;
+}
+
+    .btn-botao:hover {
+        color: #000;
+        background-color: #fffadd;
+        border-color: #fffdf0;
+    }
+
+    btn-check:focus + .btn-botao, .btn-botao:focus {
+        color: #000;
+        background-color: #fffadd;
+        border-color: #fffdf0;
+        box-shadow: 0 0 0 0.25rem rgba(255, 234, 134, 0.8);
+    }
+
+    .btn-check:checked + .btn-botao, .btn-check:active + .btn-botao, .btn-botao:active, .btn-botao.active, .show > .btn-botao.dropdown-toggle {
+        color: #000;
+        background-color: #ffffd6;
+        border-color: #fffdf0;
+    }
+
+        .btn-check:checked + .btn-botao:focus, .btn-check:active + .btn-botao:focus, .btn-botao:active:focus, .btn-botao.active:focus, .show > .btn-botao.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.25rem rgba(255, 234, 134, 0.8);
+        }
+
+    .btn-botao:disabled, .btn-botao.disabled {
+        color: #000;
+        background-color: #fff6c3;
+        border-color: #fff6c3;
+    }
+
+.rounded-4 {
+    border-radius: 0.7rem !important;
+}
+
+.rounded-5 {
+    border-radius: 1.5rem !important;
+}
+
+.dropdown-menu {
+    top: 100%; /* Ajusta a posição do menu para logo abaixo do botão */
+    left: 0%;
+    margin-right: 120px;
+    right: auto;
+}
+ 

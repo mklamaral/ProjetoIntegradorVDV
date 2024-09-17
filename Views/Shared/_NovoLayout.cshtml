@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Vá </title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="~/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- links asp -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProjetoIntegrador.styles.css" asp-append-version="true" />
+</head>
+<body class="pt-5 m-0 border-0 bd-example">
+    <!-- Nav-->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-black mb-3 fixed-top">
+            <div class="container-fluid">
+                <!-- Logo e Slogan-->
+                <a class="navbar-brand text-white text-decoration-none fs-4" asp-controller="Home" asp-action="Index">
+                    <div class="row">
+                        <div class="col">
+                            <img src="~/imgs/LogoVDV.png" alt="Logo" width="72" height="72" class="d-inline-block align-text-top">
+                        </div>
+                        <div class="col p-0">
+                            <h3 class="reduzir-espacamento mt-2">Vá de Van</h3>
+                            <h6 class="reduzir-espacamento">Vai do que? Vá de Van</h6>
+                        </div>
+                    </div>
+                </a>
+                <!-- Fim Logo e Slogan-->
+                <!-- Botão Responsivo-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Fim Botão Responsivo-->
+                <!-- Botões Nav-->
+                <div class="collapse navbar-collapse ms-5 justify-content-start" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item pe-2">
+                            <a class="nav-link text-black btn bg-warning rounded-pill" aria-current="page" asp-controller="Motorista" asp-action="Index">Motorista</a>
+                        </li>
+                        <li class="nav-item pe-2">
+                            <a class="nav-link text-black btn bg-warning rounded-pill" aria-current="page" asp-controller="Responsavel" asp-action="CadastroResponsavel">Passageiro</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item pe-2">
+                            <a class="nav-link text-black btn bg-white rounded-4 fw-bold" aria-current="page" asp-controller="PqNos" asp-action="PorqueNos">Sobre</a>
+                        </li>
+                        @* <li class="nav-item pe-2">
+                            <a class="nav-link text-black btn bg-white rounded-4 fw-bold" aria-current="page" href="#">Ajuda</a>
+                        </li> *@
+                        <li class="nav-item pe-2">
+@*                             <a class="nav-link  text-black btn bg-warning rounded-pill fw-bold text-nowrap" aria-current="page" href="">Fazer Login</a> *@
+                            <a class="nav-link text-black btn bg-warning rounded-pill fw-bold text-nowrap dropdown-toggle" role="button" data-bs-toggle="dropdown">Fazer Login</a>
+                            <ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" asp-controller="LoginResponsavel" asp-action="LoginResponsavel">Login Responsavel</a></li><li><a class="dropdown-item" asp-controller="LoginMotorista" asp-action="LoginMotorista">Login Motorista</a></li></ul>
+                        </li>
+                        <li class="nav-item pe-2">
+                            <a class="nav-link text-black btn bg-warning rounded-5 fw-bold text-nowrap" aria-current="page" href="">Cadastre-se</a>
+                        </li>
+                    </ul>
+                    <!-- Fim Botões Nav-->
+                    <!--Menu do usuário-->
+                    <div class="ps-2 pe-2">
+                        <svg id="link-usuario-vadevan" class="link-usuario-vadevan" width="30" height="30" viewBox="0 0 35 35">
+                            <path class="menu-usuario" d="M29.874,22.626a17.433,17.433,0,0,0-6.65-4.171,10.117,10.117,0,1,0-11.449,0A17.528,17.528,0,0,0,0,35H2.734a14.766,14.766,0,1,1,29.531,0H35A17.386,17.386,0,0,0,29.874,22.626ZM17.5,17.5a7.383,7.383,0,1,1,7.383-7.383A7.391,7.391,0,0,1,17.5,17.5Z" fill="white"></path>
+                        </svg>
+                        <div id="box-usuario-vadevan" class="container-fluid bg-black box-usuario-vadevan-menu rounded-5">
+                            <div class="col ">
+                                <div class="row bg-warning rounded-4 pb-3 pt-2">
+                                    <div class="col mt-1">
+                                        
+                                        <h5>Olá,  @TempData["Usuario"]</h5>
+                                        @{
+                                            var usuarioId = TempData["UsuarioId"] as int?;
+                                            var tipoUsuario = TempData["TipoUsuario"] as string;
+                                        }
+
+                                        @if (usuarioId != null)
+                                        {
+                                            if (tipoUsuario == "1")
+                                            {
+                                                <a class="text-black fw-bolder text-decoration-none editar-info" asp-controller="Responsavel" asp-action="CadastroResponsavel" asp-route-id="@usuarioId">Editar minhas informações</a>
+                                            }
+                                            else if (tipoUsuario == "2")
+                                            {
+                                                <a class="text-black fw-bolder text-decoration-none editar-info" asp-controller="Motorista" asp-action="CadastroMotorista" asp-route-id="@usuarioId">Editar minhas informações</a>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <a class="text-black fw-bolder text-decoration-none" asp-controller="LoginResponsavel" asp-action="LoginResponsavel">Login Responsavel</a>
+                                            <a class="text-black fw-bolder text-decoration-none" asp-controller="LoginMotorista" asp-action="LoginMotorista">Login Motorista</a>
+                                        }
+                                    </div>
+                                </div>
+                                @* <div class="col bg-black rounded-bottom">
+                                    <a class="nav-link text-white" aria-current="page" href="">Corridas</a>
+                                    <a class="nav-link text-white" aria-current="page" href="">Ajuda</a>
+                                    <a class="nav-link text-white" aria-current="page" href="">Mensagens</a>
+                                    <a class="nav-link text-white" aria-current="page" href="">Central de segurança</a>
+                                    <a class="nav-link text-white" aria-current="page" href="">Configurações</a>
+                                </div>
+                                <div class="col bg-black mt-4">
+                                    <a class="nav-link text-white" aria-current="page" href="">Convide Amigos</a>
+                                    <a class="nav-link text-white" aria-current="page" href="">Convide Motoristas</a>
+                                    <a class="nav-link text-white" aria-current="page" href="">Seja Motorista</a>
+                                    <a class="nav-link text-white" aria-current="page" href="">Meus Descontos</a>
+                                </div>
+                                <div class="col bg-black mb-1 mt-1">
+                                    <div class="row bg-black mb-1 mt-1 w-25">
+                                        <a class="text-white text-decoration-none" aria-current="page" href="">Sair</a>
+                                    </div>
+                                </div> *@
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim menu do usuário-->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Fim Nav-->
+    <!-- Main-->
+    <div class="container mt-5">
+        <main role="main" class="m-2 mt-5 pt-4">
+            @RenderBody()
+        </main>
+    </div>
+    <!-- Fim Main-->
+    <!-- Footer-->
+    <footer class="d-flex justify-content-around py-5 bg-black m-0 border-0 text-white position-relative">
+        <!-- Logo e Slogan-->
+        <div class="row">
+            <div class="col w-25">
+                <img src="~/imgs/LogoVDVFooter.png" alt="Logo Vá de Van" />
+            </div>
+            <div class="col p-0 pt-2 text-nowrap">
+                <h3 class="reduzir-espacamento mt-2">Vá de Van</h3>
+                <h6 class="reduzir-espacamento">Vai do que? Vá de Van</h6>
+            </div>
+        </div>
+        <!-- Fim Logo e Slogan-->
+        <!-- Empresa Links-->
+        <div class="empresa pt-3 pb-3 text-center text-nowrap">
+            <p class="titulo fw-bold">Empresa</p>
+            <br />
+            <a asp-controller="PqNos" asp-action="PorqueNos" class="text-white text-decoration-none"><p class="texto fw-light">Quem Somos</p></a>
+        </div>
+        <!-- Fim Empresa Links-->
+        <!-- Produtos Links-->
+        <div class="produtos pt-3 pb-3 text-center text-nowrap">
+            <p class="titulo fw-bold">Produtos</p>
+            <br />
+            <a asp-controller="Home" asp-action="Index" class="text-white text-decoration-none"><p class="texto fw-light">Viajar</p></a>
+            <a asp-controller="Motorista" asp-action="Index" class="text-white text-decoration-none"><p class="texto fw-light">Dirigir</p></a>
+        </div>
+        <!-- Fim Produtos Links-->
+        <!-- Direitos Reservados-->
+        <div class="termos d-flex position-absolute" style="bottom: 0%; left: 40%; gap: 15px;">
+            <p>Equipe VDV - 2024 || ©Todos os direitos reservados</p>
+        </div>
+        <!-- Fim Direitos Reservados-->   
+    </footer>
+    <!--Fim Footer-->
+
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

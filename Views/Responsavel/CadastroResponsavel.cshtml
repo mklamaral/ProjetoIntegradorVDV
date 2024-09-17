@@ -1,0 +1,178 @@
+﻿@model ProjetoIntegrador.Models.Responsavel
+@using ProjetoIntegrador.Controllers
+
+
+@{
+    ViewData["Title"] = "Cadastro Responsável";
+}
+
+@* Formulário Cadastro Responsável *@
+<div class="row">
+    <div class="row text-center mb-3 text-nowrap">
+        <h1>
+            <svg fill="#000000" width="30px" height="30px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: none;
+                        }</style>
+                </defs>
+                <title>pedestrian-child</title>
+                <path d="M26,16H17.4683l-5-6H5a3.0033,3.0033,0,0,0-3,3v6a2.0023,2.0023,0,0,0,2,2v7a2.0023,2.0023,0,0,0,2,2h4a2.0023,2.0023,0,0,0,2-2V21H10v7H6V19H4V13a1.0009,1.0009,0,0,1,1-1h6.5317l5,6H26a1.0009,1.0009,0,0,1,1,1v3H25v6H22V22H20v6a2.0023,2.0023,0,0,0,2,2h3a2.0023,2.0023,0,0,0,2-2V24a2.0023,2.0023,0,0,0,2-2V19A3.0033,3.0033,0,0,0,26,16Z" />
+                <path d="M23.5,15A3.5,3.5,0,1,1,27,11.5,3.5042,3.5042,0,0,1,23.5,15Zm0-5A1.5,1.5,0,1,0,25,11.5,1.5017,1.5017,0,0,0,23.5,10Z" />
+                <path d="M8,9a4,4,0,1,1,4-4A4.0042,4.0042,0,0,1,8,9ZM8,3a2,2,0,1,0,2,2A2.0023,2.0023,0,0,0,8,3Z" />
+                <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32" />
+            </svg>
+            Cadastro do Responsável
+            <svg fill="#000000" width="30px" height="30px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: none;
+                        }</style>
+                </defs>
+                <title>pedestrian-child</title>
+                <path d="M26,16H17.4683l-5-6H5a3.0033,3.0033,0,0,0-3,3v6a2.0023,2.0023,0,0,0,2,2v7a2.0023,2.0023,0,0,0,2,2h4a2.0023,2.0023,0,0,0,2-2V21H10v7H6V19H4V13a1.0009,1.0009,0,0,1,1-1h6.5317l5,6H26a1.0009,1.0009,0,0,1,1,1v3H25v6H22V22H20v6a2.0023,2.0023,0,0,0,2,2h3a2.0023,2.0023,0,0,0,2-2V24a2.0023,2.0023,0,0,0,2-2V19A3.0033,3.0033,0,0,0,26,16Z" />
+                <path d="M23.5,15A3.5,3.5,0,1,1,27,11.5,3.5042,3.5042,0,0,1,23.5,15Zm0-5A1.5,1.5,0,1,0,25,11.5,1.5017,1.5017,0,0,0,23.5,10Z" />
+                <path d="M8,9a4,4,0,1,1,4-4A4.0042,4.0042,0,0,1,8,9ZM8,3a2,2,0,1,0,2,2A2.0023,2.0023,0,0,0,8,3Z" />
+                <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32" />
+            </svg>
+        </h1>
+    </div>
+</div>
+<div class="container bg-dark text-white text-opacity-75 pt-5 ps-4 pe-4 pb-4 rounded-5">
+    @* LINHA NOME E CPF *@
+    <form method="post">
+        <div class="col text-start mb-4 mt-3">
+            <h4>Dados Pessoais:</h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <input asp-for="Nome" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Nome" placeholder="Nome:" />
+            </div>
+            <div class="col-lg-2">
+                <input asp-for="DataNasc" type="date" class="form-control bg-dark text-white text-opacity-75 mb-4" id="DataNasc" placeholder="Data de Nascimento:" />
+            </div>
+            <div class="col-lg-2">
+                <input asp-for="GrauParentesco" type="text" class="form-control bg-dark text-white text-opacity-75  mb-4" id="GrauParentesco" placeholder="Grau de Parentesco:" />
+            </div>
+            <div class="col-lg-3">
+                <input asp-for="ContatoEmergencia" type="text" class="form-control bg-dark text-white text-opacity-75  mb-4" id="ContatoEmergencia" placeholder="Contato de Emergência:" />
+            </div>
+            <div class="col-lg-3">
+                <input asp-for="NomeContatoEmergencia" type="text" class="form-control bg-dark text-white text-opacity-75  mb-4" id="NomeContatoEmergencia" placeholder="Nome do Contato de Emergência:" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input asp-for="RG" type="text" class="form-control bg-dark text-white text-opacity-75  mb-4" id="RG" placeholder="RG:" />
+            </div>
+            <div class="col-lg-3">
+                <input asp-for="CPF" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="CPF" placeholder="CPF:" />
+            </div>
+            <div class="col-lg-3">
+                <input asp-for="Telefone" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Telefone" placeholder="Telefone:" />
+            </div>
+            <div class="col-lg-3">
+                <input asp-for="Email" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Email" placeholder="Email:" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input asp-for="Usuario" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Usuario" placeholder="Usuário:" />
+            </div>
+            <div class="col">
+                <input asp-for="Senha" type="password" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Senha" placeholder="Senha:" />
+            </div>
+        </div>
+        @* LINHA ENDEREÇO *@
+        <div class="col text-start mb-4 mt-3">
+            <h4>Endereço:</h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <input asp-for="CEP" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="CEP" placeholder="CEP:" />
+            </div>
+            <div class="col-lg-2">
+                <input asp-for="Rua" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Rua" placeholder="Rua:" />
+            </div>
+            <div class="col-lg-1">
+                <input asp-for="Numero" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Numero" placeholder="Nº:" />
+            </div>
+            <div class="col-lg-3">
+                <input asp-for="Bairro" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Bairro" placeholder="Bairro:" />
+            </div>
+            <div class="col-lg-3">
+                <input asp-for="Cidade" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Cidade" placeholder="Cidade:" />
+            </div>
+            <div class="col-lg-1">
+                <input asp-for="Estado" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="Estado" placeholder="Estado:" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input asp-for="Complemento" type="text" class="form-control bg-dark text-white text-opacity-75" id="Complemento" placeholder="Complemento:" />
+            </div>
+        </div>
+        @* Formulário Cadastro Responsável ADC *@
+        <div id="FormResposavelAdc">
+            <div class="col text-start mb-4 mt-3">
+                <h4>Dados Pessoais do Responsável Adicional:</h4>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <input asp-for="NomeAdc" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="NomeAdc" placeholder="Nome do Responsável Adicional:" />
+                </div>
+                <div class="col-lg-4">
+                    <input asp-for="GrauParentescoAdc" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="GrauParentescoAdc" placeholder="Grau de Parentesco do Responsável Adicional:" />
+                </div>
+                <div class="col-lg-4">
+                    <input asp-for="TelefoneAdc" type="text" class="form-control bg-dark text-white text-opacity-75  mb-4" id="TelefoneAdc" placeholder="Telefone do Responsável Adicional:" />
+                </div>
+            </div>
+            @* LINHA ENDEREÇO *@
+            <div class="col text-start mb-4 mt-3 d-non">
+                <h4>Endereço do Responsável Adicional:</h4>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <input asp-for="CEPAdc" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="CEPAdc" placeholder="CEP:" />
+                </div>
+                <div class="col-lg-2">
+                    <input asp-for="RuaAdc" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="RuaAdc" placeholder="Rua:" />
+                </div>
+                <div class="col-lg-1">
+                    <input asp-for="NumeroAdc" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="NumeroAdc" placeholder="Nº:" />
+                </div>
+                <div class="col-lg-3">
+                    <input asp-for="BairroAdc" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="BairroAdc" placeholder="Bairro:" />
+                </div>
+                <div class="col-lg-3">
+                    <input asp-for="CidadeAdc" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="CidadeAdc" placeholder="Cidade:" />
+                </div>
+                <div class="col-lg-1">
+                    <input asp-for="EstadoAdc" type="text" class="form-control bg-dark text-white text-opacity-75 mb-4" id="EstadoAdc" placeholder="Estado:" />
+                </div>
+                <div class="col">
+                    <input asp-for="ComplementoAdc" type="text" class="form-control bg-dark text-white text-opacity-75" id="ComplementoAdc" placeholder="Complemento:" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="d-flex justify-content-between flex-wrap">
+                <a class=" p-2 mt-3 ps-3 pe-3 btn btn-warning text-black btn text-nowrap " asp-controller="Crianca" asp-action="CadastroCrianca" role="button">
+                    Cadastrar Criança <span class="fw-bolder fs-6">➜</span>
+                </a>
+                <div>
+                    <button id="BtnResponsavelAdc" type="submit" class="p-2 mt-3 btn btn-warning text-black btn me-auto">
+                        Responsável Adicional<span class="fw-bolder fs-6">+</span>
+                    </button>
+                    <button type="submit" class="p-2 ps-5 pe-5 mt-3 btn btn-warning text-black btn">Cadastrar</button>
+                </div>
+            </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js"></script>
+</div>
+

@@ -1,0 +1,114 @@
+﻿@model ProjetoIntegrador.Models.Responsavel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]Login Responsável VDV </title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="~/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- links asp -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PrimeiroAspNet.styles.css" asp-append-version="true" />
+
+</head>
+<body>
+    @if (!ViewData.ModelState.IsValid)
+    {
+    <div class="alert alert-danger">
+    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+    {
+    <p>@error.ErrorMessage</p>
+    }
+    </div>
+    }
+    <!-- Section: Design Block -->
+    <section class="text-center text-lg-start mt-0">
+
+
+        <!-- Jumbotron -->
+        <div class="container py-4">
+            <div class="row g-0 align-items-center justify-content-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card cascading-right bg-dark pe-5 bg-body-tertiary" style="
+            backdrop-filter: blur(30px);
+            ">
+                        <div class="card-body p-5 shadow-5 text-center">
+                            <h2 class="fw-bold text-white mb-5">Inscreva-se agora</h2>
+                            <form asp-action="LoginResponsavel" method="post">
+                                <!-- Email input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input asp-for="Usuario" type="text" id="Usuario" class="form-control border-0" placeholder="Usuário:" />
+                                    <label class="form-label text-white" for="form3Example3">Usuário</label>
+                                </div>
+
+                                <!-- Password input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input asp-for="Senha" type="password" id="Senha" class="form-control border-0" placeholder="Senha:" />
+                                    <label class="form-label text-white" for="form3Example4">Senha</label>
+                                </div>
+
+                                <!-- Checkbox -->
+                                <div class="form-check d-flex justify-content-center mb-4">
+                                    <input class="form-check-input bg-black me-2 mt-1 p-2" type="checkbox" value="" id="form2Example33" checked />
+                                    <label class="form-check-label text-white" for="form2Example33">
+                                       Lembre-se
+                                    </label>
+                                </div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-warning fw-bolder btn-block mb-4">
+                                    Entre <span class="fw-bolder fs-6">➜</span>
+                                </button>
+@* 
+                                <!-- Register buttons -->
+                                <div class="text-center">
+                                    <p>ou inscreva-se com:</p>
+                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-floating mx-1">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+
+                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-floating mx-1">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+
+                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-floating mx-1">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+
+                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-floating mx-1">
+                                        <i class="fab fa-github"></i>
+                                    </button>
+                                </div> *@
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4 mt-4 ms-4 ">
+                    <img src="~/imgs/imgLogin.png" class="w-100 rounded-4 shadow-4"
+                         alt="" />
+                </div>
+            </div>
+        </div>
+        <!-- Jumbotron -->
+    </section>
+    <!-- Section: Design Block -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
